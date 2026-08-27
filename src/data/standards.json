@@ -1,0 +1,134 @@
+[
+  {
+    "id": "is-302-2-3",
+    "standardNumber": "IS 302-2-3: 2007",
+    "title": "Safety of Household and Similar Electrical Appliances - Particular Requirements for Electric Irons",
+    "category": "Electrical Appliances",
+    "mandatoryStatus": "Mandatory (QCO Active)",
+    "scheme": "Scheme I (ISI Mark Certification Scheme)",
+    "scope": "Specifies safety, insulation, heating, and endurance requirements for electric dry and steam irons for household and similar purposes.",
+    "keyTests": [
+      "Electric Strength & High Voltage Test",
+      "Leakage Current under Operating Temperature",
+      "Thermal Cutout & Safety Fuse Operation",
+      "Drop Resistance and Mechanical Impact Test",
+      "Flexing & Cord Anchorage Test"
+    ],
+    "applicableProducts": ["Electric Iron", "Steam Iron", "Travel Dry Iron", "Cordless Iron"],
+    "sourceRef": {
+      "docTitle": "IS 302-2-3: 2007 Standard Document",
+      "clause": "Clause 8 (Heating) & Clause 13 (Leakage Current)",
+      "sourceType": "BIS Technical Regulation",
+      "status": "Source-backed prototype response"
+    }
+  },
+  {
+    "id": "is-14543",
+    "standardNumber": "IS 14543: 2024",
+    "title": "Packaged Drinking Water (Other than Packaged Natural Mineral Water) - Specification",
+    "category": "Food & Beverages",
+    "mandatoryStatus": "Mandatory (FSSAI & BIS Joint QCO)",
+    "scheme": "Scheme I (ISI Mark Certification Scheme)",
+    "scope": "Prescribes requirements, methods of sampling, microbiological purity, and heavy metal limits for packaged drinking water.",
+    "keyTests": [
+      "Microbiological Testing (E. coli, Coliform, Yeast & Mould)",
+      "Pesticide Residue Limits (Individual & Total)",
+      "Heavy Metals Spectrometry (Lead, Cadmium, Arsenic)",
+      "Total Dissolved Solids (TDS) and pH Value"
+    ],
+    "applicableProducts": ["Packaged Drinking Water", "Bottled Water", "Water Jar 20L"],
+    "sourceRef": {
+      "docTitle": "IS 14543: 2024 Gazette Edition",
+      "clause": "Table 1 (Physical/Chemical limits) & Table 2 (Microbiology)",
+      "sourceType": "BIS Food Quality Standard",
+      "status": "Source-backed prototype response"
+    }
+  },
+  {
+    "id": "is-4151",
+    "standardNumber": "IS 4151: 2015",
+    "title": "Protective Helmets for Two-Wheeler Riders - Specification",
+    "category": "Consumer & Safety Goods",
+    "mandatoryStatus": "Mandatory (MoRTH & BIS Notification)",
+    "scheme": "Scheme I (ISI Mark Certification Scheme)",
+    "scope": "Covers design, construction, peripheral vision, impact attenuation, and retention system for motorcycle helmets.",
+    "keyTests": [
+      "Impact Absorption Test (Drop Tower Rig)",
+      "Retention System Dynamic Strength Test",
+      "Visor Optical Clarity & Scratch Resistance Test",
+      "Rigidity and Penetration Resistance Test"
+    ],
+    "applicableProducts": ["Two-Wheeler Helmet", "Full Face Helmet", "Open Face Helmet"],
+    "sourceRef": {
+      "docTitle": "Ministry of Road Transport & Highways QCO S.O. 4252(E)",
+      "clause": "Section 4 & IS 4151 Clause 9",
+      "sourceType": "Mandatory Safety Regulation",
+      "status": "Source-backed prototype response"
+    }
+  },
+  {
+    "id": "is-16102-1",
+    "standardNumber": "IS 16102 (Part 1): 2012",
+    "title": "Self-Ballasted LED Lamps for General Lighting Services - Safety Requirements",
+    "category": "Electronics & IT",
+    "mandatoryStatus": "Mandatory (MeitY & BIS CRS Scheme)",
+    "scheme": "Scheme II (Compulsory Registration Scheme - CRS)",
+    "scope": "Covers safety and interchangeability requirements for LED lamps intended for domestic and general lighting.",
+    "keyTests": [
+      "Insulation Resistance & Electric Strength",
+      "Cap Temperature Rise Test",
+      "Resistance to Heat and Fire",
+      "Fault Condition Testing"
+    ],
+    "applicableProducts": ["LED Bulb", "LED Downlight", "Self-Ballasted LED"],
+    "sourceRef": {
+      "docTitle": "MeitY Electronics & IT Goods (Compulsory Registration) Order",
+      "clause": "Schedule Item 23 & IS 16102 Clause 7",
+      "sourceType": "MeitY / BIS Technical Standard",
+      "status": "Source-backed prototype response"
+    }
+  },
+  {
+    "id": "is-1786",
+    "standardNumber": "IS 1786: 2008",
+    "title": "High Strength Deformed Steel Bars and Wires for Concrete Reinforcement",
+    "category": "Construction Materials",
+    "mandatoryStatus": "Mandatory (Steel QCO Active)",
+    "scheme": "Scheme I (ISI Mark Certification Scheme)",
+    "scope": "Covers chemical and mechanical properties of Fe 415, Fe 500, Fe 550, and Fe 600 grade TMT rebars.",
+    "keyTests": [
+      "Yield Stress and Ultimate Tensile Strength (UTS)",
+      "Elongation Percentage & Bend/Rebend Test",
+      "Chemical Composition Analysis (Carbon, Sulphur, Phosphorus)",
+      "Nominal Mass per Metre Tolerance Test"
+    ],
+    "applicableProducts": ["TMT Rebars", "Steel Reinforcement Bars", "Fe 500D Bars"],
+    "sourceRef": {
+      "docTitle": "Steel & Steel Products (Quality Control) Order 2024",
+      "clause": "Table 1 (Chemical Composition) & Clause 8",
+      "sourceType": "Ministry of Steel & BIS Regulation",
+      "status": "Source-backed prototype response"
+    }
+  },
+  {
+    "id": "is-1417",
+    "standardNumber": "IS 1417: 2016",
+    "title": "Gold and Gold Alloys, Jewellery/Artefacts - Fineness and Marking - Specification",
+    "category": "Jewellery & Precious Metals",
+    "mandatoryStatus": "Mandatory (Hallmarking Order)",
+    "scheme": "Hallmarking Scheme (HUID System)",
+    "scope": "Specifies 6 standard purity grades (24K, 22K, 20K, 18K, 14K, 9K), hallmark identification mark, and 6-digit alphanumeric HUID requirements.",
+    "keyTests": [
+      "Fire Assay (Cupellation) Method",
+      "X-Ray Fluorescence (XRF) Screening",
+      "Laser Inscription Verification"
+    ],
+    "applicableProducts": ["Gold Jewellery", "Gold Artefacts", "Silver Articles"],
+    "sourceRef": {
+      "docTitle": "BIS Hallmarking Regulations 2018 (Amended 2023)",
+      "clause": "Clause 4 (Purity Grades) & Clause 7 (HUID Inscription)",
+      "sourceType": "BIS Hallmarking Technical Regulation",
+      "status": "Source-backed prototype response"
+    }
+  }
+]

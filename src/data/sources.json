@@ -1,0 +1,50 @@
+[
+  {
+    "id": "src-is-302",
+    "title": "IS 302-2-3: 2007 (Safety of Household Appliances - Electric Irons)",
+    "sourceType": "BIS Technical Regulation",
+    "reference": "Section 8 (Heating & Overload) & Clause 13 (Leakage Current)",
+    "status": "Source-backed prototype response",
+    "portal": "Manakonline Standard Directory"
+  },
+  {
+    "id": "src-qco-iron",
+    "title": "Electrical Appliances (Quality Control) Order 2023",
+    "sourceType": "Gazette of India Notification",
+    "reference": "Order S.O. 452(E), Schedule I - Mandatory Certification",
+    "status": "Source-backed prototype response",
+    "portal": "Ministry of Heavy Industries & BIS Gazette"
+  },
+  {
+    "id": "src-scheme-1",
+    "title": "BIS Conformity Assessment Regulations 2018 (Scheme-I)",
+    "sourceType": "BIS Legal Framework",
+    "reference": "Regulation 4 & 5 (Product Certification & Mark Grant)",
+    "status": "Source-backed prototype response",
+    "portal": "BIS Regulatory Framework Portal"
+  },
+  {
+    "id": "src-hallmark-is1417",
+    "title": "IS 1417: 2016 (Gold & Gold Alloys - Purity & Marking)",
+    "sourceType": "Indian Standard Specification",
+    "reference": "Table 1 (Fineness Standards 916/750) & HUID Guidelines",
+    "status": "Source-backed prototype response",
+    "portal": "BIS Hallmarking Portal"
+  },
+  {
+    "id": "src-lab-rules",
+    "title": "BIS (Laboratory Recognition Scheme) Regulations 2020",
+    "sourceType": "BIS Operational Guidelines",
+    "reference": "Clause 6(2) - Scope of NABL Accredited Facilities",
+    "status": "Source-backed prototype response",
+    "portal": "BIS Central Laboratory Network"
+  },
+  {
+    "id": "src-consumer-rights",
+    "title": "Consumer Protection Act 2019 & BIS Act 2016",
+    "sourceType": "Statutory Act of Parliament",
+    "reference": "Section 28 (Penalties for Counterfeit Standard Marks)",
+    "status": "Source-backed prototype response",
+    "portal": "Department of Consumer Affairs"
+  }
+]
