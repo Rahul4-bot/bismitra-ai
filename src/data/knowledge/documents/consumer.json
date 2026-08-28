@@ -1,0 +1,54 @@
+[
+  {
+    "id": "doc_consumer_001_isi_verification",
+    "category": "consumer",
+    "title": "How Consumers Can Verify ISI Marks and CM/L License Numbers",
+    "verification_status": "verified",
+    "content": "Consumers can verify the authenticity of an ISI Mark using the 'Verify License Details' feature in the official BIS Care mobile app or via the Manakonline portal (manakonline.in). Every genuine ISI mark is accompanied by a 7 or 8-digit Certification Marks Licence (CM/L) number. Entering this CM/L number provides: 1) The licensee's name and factory address, 2) Brand name and product model, 3) Current validity status (Operative, Expired, Suspended, or Cancelled), and 4) Indian Standard number to ensure that the license matches the product being sold.",
+    "source_name": "Bureau of Indian Standards",
+    "document_title": "BIS Care Mobile App Citizen User Guide",
+    "page": "N/A",
+    "section": "Verify Licence Details Module",
+    "url": "https://bis.gov.in/consumer-engagement-overview/",
+    "keywords": ["how to verify isi mark", "verify cml number", "verify genuine product", "bis care verify", "check isi mark", "cml status", "consumer verification"]
+  },
+  {
+    "id": "doc_consumer_002_fake_isi_reporting",
+    "category": "consumer",
+    "title": "Reporting Fake or Counterfeit ISI Marks & Submitting Complaints",
+    "verification_status": "verified",
+    "content": "If a consumer encounters a counterfeit ISI mark, a product falsely claiming compliance, or substandard certified goods, they can lodge a complaint through the 'Complaints' section of the BIS Care mobile app or the online grievance portal on bis.gov.in. The consumer should provide: 1) Product photographs showing the mark and label, 2) Seller/shop name and address, and 3) Purchase bill/cash memo (if available). BIS Enforcement Branch conducts search and seizure raids under the BIS Act, 2016.",
+    "source_name": "Bureau of Indian Standards",
+    "document_title": "BIS Enforcement Manual & Consumer Grievance Procedures",
+    "page": "N/A",
+    "section": "Public Complaints and Enforcement Guidelines",
+    "url": "https://bis.gov.in/consumer-engagement-overview/",
+    "keywords": ["fake isi mark", "report fake product", "counterfeit mark", "lodge complaint", "bis grievance", "misuse of bis mark", "report seller", "enforcement raid"]
+  },
+  {
+    "id": "doc_consumer_003_helpline_redressal",
+    "category": "consumer",
+    "title": "National Consumer Helpline (1915) and BIS Consumer Services",
+    "verification_status": "verified",
+    "content": "For consumer guidance, complaints regarding substandard quality, or warranty disputes on certified goods, consumers can contact the National Consumer Helpline (NCH) at the toll-free short code 1915, or through consumerhelpline.gov.in. In addition, each of the 38+ BIS Branch Offices across India maintains a dedicated Public Grievance Officer and consumer protection cell to handle complaints concerning certified goods, hallmarked jewellery, and laboratory testing disputes.",
+    "source_name": "Department of Consumer Affairs & Bureau of Indian Standards",
+    "document_title": "Citizen's Charter & National Consumer Redressal Guidelines",
+    "page": "N/A",
+    "section": "National Consumer Helpline 1915 & Grievance Desks",
+    "url": "https://consumerhelpline.gov.in/",
+    "keywords": ["national consumer helpline", "1915", "consumer helpline", "bis branch office", "consumer services", "public grievance officer", "consumer redressal"]
+  },
+  {
+    "id": "doc_consumer_004_qco_penalties",
+    "category": "consumer",
+    "title": "Legal Penalties for Non-Certified Goods Under Mandatory QCOs",
+    "verification_status": "verified",
+    "content": "Selling, manufacturing, importing, storing, or exhibiting for sale any product notified under a mandatory Quality Control Order (QCO) without a valid BIS standard mark is a punishable offense under Section 29(3) read with Section 17 of the Bureau of Indian Standards Act, 2016. Penalties include imprisonment for a term of up to 2 years, or a monetary fine not less than ₹2,00,000 for the first contravention (extending up to ten times the value of goods produced or sold), or both; in addition to seizure and confiscation of non-compliant inventory.",
+    "source_name": "Bureau of Indian Standards",
+    "document_title": "Bureau of Indian Standards Act, 2016",
+    "page": "N/A",
+    "section": "Section 29(3) (Penalties for Contravention of Mandatory Standardization Orders)",
+    "url": "https://bis.gov.in/the-bis-act-2016/",
+    "keywords": ["penalties", "qco penalties", "punishment for fake isi", "section 29", "fine for selling non certified goods", "illegal sale without isi", "bis act penalty"]
+  }
+]

@@ -1,0 +1,230 @@
+[
+  {
+    "id": "prod_001_electric_iron",
+    "product_name": "Electric Iron (Dry & Steam)",
+    "category": "Electrical Appliances",
+    "possible_standard": "IS 302-2-3: 2007",
+    "scheme_or_service": "Scheme-I (ISI Mark Certification)",
+    "mandatory_status": "Mandatory under Electrical Appliances (Quality Control) Order",
+    "verification_status": "verified",
+    "description": "Specifies safety, insulation, heating, and electric shock protection requirements for electric dry irons, steam irons, and travel irons for household use.",
+    "certification_guidance": "Manufacturers must set up an in-house laboratory equipped for insulation resistance, earth continuity, high voltage, and leakage current testing before applying on the Manakonline portal.",
+    "important_notes": [
+      "Commercial sale, distribution, or storage of electric irons without a valid ISI mark is prohibited under Central QCO notifications.",
+      "The product rating plate must display the ISI mark along with the assigned 7 or 8-digit CM/L license number.",
+      "Requires factory audit and independent lab testing of sealed samples."
+    ],
+    "supported_questions": [
+      "Which BIS standard and certification scheme apply to Electric Irons?",
+      "Which standard applies to electric iron?",
+      "Is BIS certification mandatory for electric irons?",
+      "What tests are required for electric iron certification?"
+    ],
+    "sources": [
+      {
+        "source_name": "Bureau of Indian Standards",
+        "document_or_page": "IS 302-2-3: 2007 (Safety of Household and Similar Electrical Appliances - Particular Requirements for Electric Irons)",
+        "page_or_section": "Clause 8 (Heating), Clause 13 (Leakage Current) & Clause 16",
+        "url": "https://www.services.bis.gov.in",
+        "verification_status": "verified"
+      },
+      {
+        "source_name": "Ministry of Heavy Industries",
+        "document_or_page": "Electrical Appliances (Quality Control) Order",
+        "page_or_section": "Schedule I",
+        "url": "https://bis.gov.in/product-certification/quality-control-orders/",
+        "verification_status": "verified"
+      }
+    ]
+  },
+  {
+    "id": "prod_002_packaged_water",
+    "product_name": "Packaged Drinking Water (Other than Natural Mineral Water)",
+    "category": "Food & Beverages",
+    "possible_standard": "IS 14543: 2024",
+    "scheme_or_service": "Scheme-I (ISI Mark Certification)",
+    "mandatory_status": "Mandatory under FSSAI & BIS Joint Quality Regulations",
+    "verification_status": "verified",
+    "description": "Prescribes physical, chemical, microbiological, and packaging standards for treated, packaged drinking water in bottles, pouches, and 20-litre jars.",
+    "certification_guidance": "A fully functional in-house microbiological laboratory with a qualified microbiologist is mandatory. Water must be tested for toxic heavy metals (Lead, Arsenic, Cadmium), pesticide residues, and microbial pathogens.",
+    "important_notes": [
+      "Packaged drinking water cannot be bottled or sold anywhere in India without an active BIS ISI license.",
+      "Every single batch must be tested for microbiological purity (E. coli, coliform, yeast, mould) prior to release.",
+      "Containers must display the BIS ISI Mark with the CM/L number alongside the FSSAI license number."
+    ],
+    "supported_questions": [
+      "Which BIS standard applies to Packaged Drinking Water?",
+      "Standard for packaged drinking water",
+      "Is ISI mark compulsory for packaged water?",
+      "What tests are conducted for packaged drinking water certification?"
+    ],
+    "sources": [
+      {
+        "source_name": "Bureau of Indian Standards",
+        "document_or_page": "IS 14543: 2024 (Packaged Drinking Water Other than Packaged Natural Mineral Water - Specification)",
+        "page_or_section": "Table 1 (Physical/Chemical Limits) & Table 2 (Microbiological Requirements)",
+        "url": "https://www.services.bis.gov.in",
+        "verification_status": "verified"
+      },
+      {
+        "source_name": "Food Safety and Standards Authority of India (FSSAI)",
+        "document_or_page": "Food Safety and Standards (Prohibition and Restrictions on Sales) Regulations",
+        "page_or_section": "Regulation 2.3.14",
+        "url": "https://fssai.gov.in",
+        "verification_status": "verified"
+      }
+    ]
+  },
+  {
+    "id": "prod_003_helmet",
+    "product_name": "Two-Wheeler Protective Helmets",
+    "category": "Consumer & Safety Goods",
+    "possible_standard": "IS 4151: 2015",
+    "scheme_or_service": "Scheme-I (ISI Mark Certification)",
+    "mandatory_status": "Mandatory under MoRTH Motor Vehicles Quality Control Order",
+    "verification_status": "verified",
+    "description": "Covers requirements for design, construction, peripheral vision, impact attenuation, and retention systems for protective helmets used by riders of two-wheeled motor vehicles.",
+    "certification_guidance": "Manufacturers must possess drop-tower impact attenuation rigs, chin-strap dynamic retention testers, and optical visor test benches for routine quality verification.",
+    "important_notes": [
+      "Selling or manufacturing non-ISI certified motorcycle helmets in India is an offence under the Motor Vehicles Act.",
+      "Helmets must pass penetration and impact shock absorption criteria.",
+      "The ISI Mark must be indelibly printed or engraved on the outer shell and inner comfort liner."
+    ],
+    "supported_questions": [
+      "Which standard governs Two-Wheeler Protective Helmets?",
+      "Standard for two wheeler helmet",
+      "Is ISI mandatory for motorcycle helmets?",
+      "What safety tests are conducted for IS 4151 helmets?"
+    ],
+    "sources": [
+      {
+        "source_name": "Bureau of Indian Standards",
+        "document_or_page": "IS 4151: 2015 (Protective Helmets for Two Wheeler Riders - Specification)",
+        "page_or_section": "Clause 8 (Construction), Clause 9 (Tests) & Clause 10 (Marking)",
+        "url": "https://www.services.bis.gov.in",
+        "verification_status": "verified"
+      },
+      {
+        "source_name": "Ministry of Road Transport and Highways (MoRTH)",
+        "document_or_page": "Two-Wheeled Motor Vehicles (Helmet) Quality Control Order",
+        "page_or_section": "Notification S.O. 4252(E)",
+        "url": "https://morth.nic.in",
+        "verification_status": "verified"
+      }
+    ]
+  },
+  {
+    "id": "prod_004_led_bulb",
+    "product_name": "Self-Ballasted LED Bulbs for General Lighting",
+    "category": "Electronics & IT Goods",
+    "possible_standard": "IS 16102 (Part 1): 2012",
+    "scheme_or_service": "Scheme-II (Compulsory Registration Scheme - CRS)",
+    "mandatory_status": "Mandatory under MeitY Compulsory Registration Order",
+    "verification_status": "verified",
+    "description": "Specifies safety and interchangeability requirements for self-ballasted LED lamps intended for domestic and general lighting purposes.",
+    "certification_guidance": "Products must be tested at a BIS-recognized laboratory in India. The manufacturer then submits the test report online on the CRS portal to obtain an R-number (Registration Mark) under Scheme-II.",
+    "important_notes": [
+      "Under Scheme-II (CRS), initial factory audit is not conducted; compliance is granted on the basis of accredited lab test reports.",
+      "The product body and retail packaging must state: 'Self Declaration - Conforming to IS 16102 (Part 1)' along with the R-number (e.g., R-XXXXXXXX).",
+      "Key tests include electric strength, cap temperature rise, insulation resistance, and resistance to heat and fire."
+    ],
+    "supported_questions": [
+      "Which standard and scheme apply to Self-Ballasted LED Bulbs?",
+      "Is LED bulb under ISI or CRS?",
+      "Which standard applies to LED lamps?",
+      "How to register LED bulbs under BIS CRS?"
+    ],
+    "sources": [
+      {
+        "source_name": "Bureau of Indian Standards",
+        "document_or_page": "IS 16102 (Part 1): 2012 (Self-Ballasted LED Lamps - Safety Requirements)",
+        "page_or_section": "Clause 7 (Marking) & Clause 8 (Interchangeability)",
+        "url": "https://www.crsbis.in/BIS/",
+        "verification_status": "verified"
+      },
+      {
+        "source_name": "Ministry of Electronics and Information Technology (MeitY)",
+        "document_or_page": "Electronics and Information Technology Goods (Requirement for Compulsory Registration) Order",
+        "page_or_section": "Schedule Item 23",
+        "url": "https://www.meity.gov.in",
+        "verification_status": "verified"
+      }
+    ]
+  },
+  {
+    "id": "prod_005_tmt_steel",
+    "product_name": "High Strength Deformed Steel Bars (TMT Rebars)",
+    "category": "Construction Materials",
+    "possible_standard": "IS 1786: 2008",
+    "scheme_or_service": "Scheme-I (ISI Mark Certification)",
+    "mandatory_status": "Mandatory under Ministry of Steel Quality Control Order",
+    "verification_status": "verified",
+    "description": "Specifies requirements for thermo-mechanically treated (TMT) deformed steel bars and wires for concrete reinforcement in grades Fe 415, Fe 500, Fe 550, and Fe 600.",
+    "certification_guidance": "Steel rolling mills must possess chemical spectrometry analysis equipment, universal testing machines (UTM) for tensile/yield stress, and bend/rebend mandrels for continuous in-house quality assurance.",
+    "important_notes": [
+      "Sale or import of construction steel without the BIS ISI Mark is illegal under the Steel and Steel Products QCO.",
+      "Each rebar must have rolled-in branding showing the manufacturer trademark, IS 1786 mark, and strength grade (e.g., Fe 500D) at regular intervals.",
+      "Requires strict surveillance sampling and factory compliance audits."
+    ],
+    "supported_questions": [
+      "Which BIS standard applies to TMT Steel Rebars for construction?",
+      "Standard for TMT steel bars",
+      "Is ISI mark compulsory for construction steel?",
+      "What are the mechanical test requirements for IS 1786 steel?"
+    ],
+    "sources": [
+      {
+        "source_name": "Bureau of Indian Standards",
+        "document_or_page": "IS 1786: 2008 (High Strength Deformed Steel Bars and Wires for Concrete Reinforcement)",
+        "page_or_section": "Table 1 (Chemical Composition) & Table 3 (Mechanical Properties)",
+        "url": "https://www.services.bis.gov.in",
+        "verification_status": "verified"
+      },
+      {
+        "source_name": "Ministry of Steel",
+        "document_or_page": "Steel and Steel Products (Quality Control) Order",
+        "page_or_section": "Clause 3 & Schedule I",
+        "url": "https://steel.gov.in",
+        "verification_status": "verified"
+      }
+    ]
+  },
+  {
+    "id": "prod_006_gold_jewellery",
+    "product_name": "Gold Jewellery and Artefacts",
+    "category": "Jewellery & Precious Metals",
+    "possible_standard": "IS 1417: 2016",
+    "scheme_or_service": "Hallmarking Scheme (HUID System)",
+    "mandatory_status": "Mandatory under Hallmarking Orders (Ministry of Consumer Affairs)",
+    "verification_status": "verified",
+    "description": "Specifies fineness, approved karat purity grades, assay testing methods, and laser marking standards for gold jewellery and precious artefacts.",
+    "certification_guidance": "Jewellers must be registered with BIS. Assaying and laser hallmarking is performed exclusively at BIS-recognized Assaying and Hallmarking Centres (AHC) using Fire Assay (cupellation) or XRF methods.",
+    "important_notes": [
+      "Hallmarking is mandatory in notified districts of India for approved gold purity grades.",
+      "Every piece must carry the 3 mandatory marks: BIS Logo, Karat Purity (e.g. 22K916), and the 6-digit alphanumeric HUID code.",
+      "Consumers can verify the jeweller registration and assay date of any piece via the BIS Care App."
+    ],
+    "supported_questions": [
+      "Which standard governs Gold Jewellery Purity and Fineness?",
+      "What is the standard for gold hallmarking?",
+      "What are the mandatory marks on gold jewellery?",
+      "How is gold purity tested under IS 1417?"
+    ],
+    "sources": [
+      {
+        "source_name": "Bureau of Indian Standards",
+        "document_or_page": "IS 1417: 2016 (Gold and Gold Alloys, Jewellery/Artefacts - Fineness and Marking)",
+        "page_or_section": "Clause 4 (Purity Grades), Clause 5 (Assaying) & Clause 7 (HUID)",
+        "url": "https://www.hallmarking.bis.gov.in/",
+        "verification_status": "verified"
+      },
+      {
+        "source_name": "Department of Consumer Affairs",
+        "document_or_page": "Hallmarking of Gold Jewellery and Gold Artefacts Order",
+        "page_or_section": "Clause 3 (Mandatory Hallmarking)",
+        "url": "https://consumeraffairs.nic.in",
+        "verification_status": "verified"
+      }
+    ]
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "id": "doc_test_001_lab_network",
+    "category": "testing",
+    "title": "Finding BIS Central Laboratories & Recognized Testing Facilities (LRS)",
+    "verification_status": "verified",
+    "content": "BIS operates a nationwide testing ecosystem consisting of: 1) In-House BIS Central & Regional Test Houses: Laboratories located in Sahibabad (Central Lab), Chennai (SRO), Kolkata (ERO), Mumbai (WRO), Mohali (NRO), Bangalore, and Patna; 2) Recognized Laboratories under Laboratory Recognition Scheme (LRS 2020): Testing laboratories evaluated and recognized by BIS for specific Indian Standards. Users and manufacturers can search accredited laboratories through the BIS Laboratory Information Management System (LIMS) on services.bis.gov.in by filtering by state, product category, or IS standard code.",
+    "source_name": "Bureau of Indian Standards",
+    "document_title": "BIS (Laboratory Recognition Scheme) Regulations, 2020 & LIMS Portal",
+    "page": "N/A",
+    "section": "Clause 4 (Eligibility) & Clause 6 (Scope of Recognition)",
+    "url": "https://www.services.bis.gov.in/php/BIS_2.0/bis_labs/",
+    "keywords": ["how to find testing laboratory", "find lab", "bis central laboratory", "testing lab network", "lims", "lrs recognized lab", "sahibabad lab", "where to test product"]
+  },
+  {
+    "id": "doc_test_002_sample_submission",
+    "category": "testing",
+    "title": "Prerequisites and Documentation for Laboratory Sample Testing",
+    "verification_status": "verified",
+    "content": "Before submitting a product sample for conformity testing at a BIS Central or recognized laboratory, the applicant/manufacturer must prepare: 1) Test Request Form (TRF): Detailing product name, model/type, applicant information, and requested testing parameters; 2) Technical Documentation: Circuit schematics, rating plate artwork, component list, and material safety data sheets where applicable; 3) Standard Sample Quantity: Prescribed sample units as per the specific standard sampling plan; 4) Proof of Testing Fee Payment: Payment receipt for prescribed laboratory test charges according to the official BIS test fee schedule.",
+    "source_name": "Bureau of Indian Standards",
+    "document_title": "BIS General Guidelines for Product Sampling and Test Sample Submission",
+    "page": "N/A",
+    "section": "Pre-Testing Documentation and Sample Submission Guidelines",
+    "url": "https://www.services.bis.gov.in/php/BIS_2.0/bis_labs/",
+    "keywords": ["prerequisites before testing", "sample submission", "documents needed for testing", "test request form", "trf", "sample quantity", "testing fee"]
+  },
+  {
+    "id": "doc_test_003_nabl_accreditation",
+    "category": "testing",
+    "title": "Role of NABL Accreditation & ISO/IEC 17025 in Laboratory Recognition",
+    "verification_status": "verified",
+    "content": "To be eligible for recognition under the BIS Laboratory Recognition Scheme (LRS 2020), an external testing facility must hold valid accreditation from the National Accreditation Board for Testing and Calibration Laboratories (NABL) in accordance with international standard ISO/IEC 17025 (General requirements for the competence of testing and calibration laboratories). BIS technical teams further assess the laboratory specifically for test parameters, equipment calibration, environmental controls, and technician competence required by individual Indian Standards before issuing recognition.",
+    "source_name": "Bureau of Indian Standards & NABL",
+    "document_title": "BIS (Laboratory Recognition Scheme) Regulations, 2020",
+    "page": "N/A",
+    "section": "Regulation 4 (Eligibility Criteria for Laboratory Recognition)",
+    "url": "https://www.services.bis.gov.in/php/BIS_2.0/bis_labs/",
+    "keywords": ["nabl accreditation", "iso 17025", "role of recognized laboratory", "laboratory eligibility", "lrs 2020", "testing competence", "accredited lab"]
+  }
+]

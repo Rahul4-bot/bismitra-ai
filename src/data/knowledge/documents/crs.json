@@ -1,0 +1,54 @@
+[
+  {
+    "id": "doc_crs_001_overview",
+    "category": "crs",
+    "title": "What is Compulsory Registration Scheme (CRS) & How It Differs from Scheme-I",
+    "verification_status": "verified",
+    "content": "The Compulsory Registration Scheme (CRS), designated as Scheme-II under the BIS (Conformity Assessment) Regulations 2018, is a self-declaration of conformity framework primarily applicable to notified electronic and IT goods. Key differences from Scheme-I (ISI Mark) include: 1) Factory Audit: Under CRS, no preliminary factory audit is conducted prior to grant of registration; 2) Testing: Registration is granted on the basis of a test report from a BIS-recognized laboratory located in India; 3) Standard Mark: Products bear the CRS Registration Mark with the statement 'Self Declaration - Conforming to IS XXXXX' and a unique R-number (e.g. R-XXXXXXXX) instead of the ISI mark.",
+    "source_name": "Bureau of Indian Standards & MeitY",
+    "document_title": "BIS (Conformity Assessment) Regulations 2018 - Scheme II (CRS)",
+    "page": "N/A",
+    "section": "Schedule II (Compulsory Registration Scheme)",
+    "url": "https://www.crsbis.in/BIS/",
+    "keywords": ["what is crs", "compulsory registration", "scheme 2", "difference between isi and crs", "self declaration of conformity", "r number", "crs overview"]
+  },
+  {
+    "id": "doc_crs_002_notified_products",
+    "category": "crs",
+    "title": "Which Product Categories Fall Under Compulsory Registration (CRS)",
+    "verification_status": "verified",
+    "content": "Electronic, IT, and consumer electrical goods are notified under the Compulsory Registration Scheme by MeitY, MNRE, and Ministry of Power. Major notified categories include: 1) IT Goods: Laptops, notebooks, tablets, servers, printers, and scanners; 2) Audio/Visual & Electronics: Television sets, LED monitors, Bluetooth wireless speakers, and smartwatches; 3) Power & Accessories: Power adapters, mobile phone chargers, power banks, and UPS/inverters; 4) Lighting: Self-ballasted LED lamps (IS 16102-1) and LED drivers; 5) Solar Products: Solar PV modules and grid-connected inverters.",
+    "source_name": "Ministry of Electronics and Information Technology (MeitY)",
+    "document_title": "Electronics and Information Technology Goods (Compulsory Registration) Orders",
+    "page": "N/A",
+    "section": "Schedule of Notified Goods under CRS",
+    "url": "https://www.crsbis.in/BIS/product-category.do",
+    "keywords": ["which products fall under crs", "crs products", "notified crs categories", "laptops", "led bulb crs", "mobile charger crs", "solar inverter crs", "crs list"]
+  },
+  {
+    "id": "doc_crs_003_registration_process",
+    "category": "crs",
+    "title": "The Step-by-Step Registration Process for CRS Products",
+    "verification_status": "verified",
+    "content": "The registration process under CRS follows an online workflow: 1) Sample Testing: The manufacturer sends product samples to a BIS-recognized laboratory in India for testing against the relevant Indian Standard; 2) Test Report Generation: The laboratory uploads the verified test report directly to the BIS CRS portal (the report is valid for application submission for 90 days); 3) Online Application: The manufacturer or Authorized Indian Representative (AIR for foreign manufacturers) submits the application on crsbis.in with product documentation and fee; 4) Grant of Registration: BIS evaluates the application and issues the Registration Number (R-XXXXXXXX).",
+    "source_name": "Bureau of Indian Standards",
+    "document_title": "CRS User Guidelines & Application Process Flow",
+    "page": "N/A",
+    "section": "Online Registration Workflow on CRS Portal",
+    "url": "https://www.crsbis.in/BIS/",
+    "keywords": ["crs registration process", "how to register for crs", "crs steps", "crs application", "air foreign manufacturer", "90 days test report", "scheme 2 process"]
+  },
+  {
+    "id": "doc_crs_004_standard_mark_label",
+    "category": "crs",
+    "title": "Standard Mark and Labeling Requirements for CRS Registered Products",
+    "verification_status": "verified",
+    "content": "All products registered under CRS must display the standard Registration Mark on the product body and packaging before market release. The mark must clearly display: 1) The standard statement: 'Self Declaration - Conforming to IS XXXXX (Part X)', 2) The unique BIS Registration Number assigned to the manufacturing location (e.g. 'R-XXXXXXXX'), and 3) The official CRS logo. The mark must be legible, indelible, and placed prominently on the rating label.",
+    "source_name": "Bureau of Indian Standards",
+    "document_title": "BIS Guidelines for Display and Use of Standard Mark under Scheme-II",
+    "page": "N/A",
+    "section": "Guidelines for Use of Standard Mark (CRS)",
+    "url": "https://www.crsbis.in/BIS/",
+    "keywords": ["crs standard mark", "crs label", "how to display crs mark", "r number display", "self declaration label", "crs marking requirements"]
+  }
+]

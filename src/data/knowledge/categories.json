@@ -1,0 +1,38 @@
+[
+  {
+    "id": "certification",
+    "name": "BIS / ISI Certification Process",
+    "description": "Scheme-I ISI mark certification procedures, 7-step roadmap, factory audit requirements, and license grant lifecycle.",
+    "keywords": ["certification", "isi mark", "scheme 1", "manakonline", "factory inspection", "license", "cml", "cml number", "application process"]
+  },
+  {
+    "id": "hallmarking",
+    "name": "Hallmarking and HUID",
+    "description": "Gold and silver jewellery hallmarking regulations, 6-digit HUID code verification, purity standards (22K916, 18K750), and consumer rights.",
+    "keywords": ["hallmarking", "huid", "gold", "silver", "purity", "22k916", "18k750", "jewellery", "ahc", "assaying", "hallmark unique identification"]
+  },
+  {
+    "id": "crs",
+    "name": "Compulsory Registration Scheme (CRS)",
+    "description": "Scheme-II self-declaration conformity assessment for electronics, IT goods, and solar products under MeitY/MNRE mandates.",
+    "keywords": ["crs", "compulsory registration", "scheme 2", "meity", "electronics", "self declaration of conformity", "registration process"]
+  },
+  {
+    "id": "consumer",
+    "name": "Consumer-Related BIS Queries",
+    "description": "Consumer protection guidelines, BIS Care app verification, ISI CM/L number checking, and complaint lodging against counterfeit marks.",
+    "keywords": ["consumer", "verify", "fake mark", "counterfeit", "complaint", "bis care", "cml verification", "grievance", "toll free", "1915"]
+  },
+  {
+    "id": "products",
+    "name": "Selected Electrical and Consumer Products",
+    "description": "Structured specifications, IS codes, mandatory QCO status, and compliance parameters for selected demo products.",
+    "keywords": ["product", "is code", "indian standard", "electric iron", "packaged drinking water", "helmet", "led bulb", "tmt steel", "gold jewellery"]
+  },
+  {
+    "id": "testing",
+    "name": "Testing Laboratory Discovery and Requirements",
+    "description": "BIS Central & Regional testing laboratories, NABL-accredited Laboratory Recognition Scheme (LRS), and pre-testing criteria.",
+    "keywords": ["laboratory", "testing lab", "nabl", "lrs", "sample testing", "central laboratory", "test report", "in-house lab"]
+  }
+]

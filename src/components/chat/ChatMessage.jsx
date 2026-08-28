@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, User, Sparkles, ArrowRight, CornerDownRight, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, User, Sparkles, ArrowRight, CornerDownRight, CheckCircle2, AlertTriangle } from 'lucide-react';
 import SourceCard from '../common/SourceCard';
 import Badge from '../common/Badge';
 
@@ -24,8 +24,9 @@ export default function ChatMessage({ message, onNavigate, onSendPrompt }) {
     );
   }
 
-  // Helper to format simple markdown-like strings (bold, headings, bullet points)
+  // Helper to format simple markdown-like strings (bold, headings, bullet points, code)
   const renderFormattedText = (rawText) => {
+    if (!rawText) return null;
     const lines = rawText.split('\n');
     return (
       <div className="space-y-2 text-sm text-slate-800 leading-relaxed">
@@ -66,6 +67,15 @@ export default function ChatMessage({ message, onNavigate, onSendPrompt }) {
             );
           }
 
+          // Disclaimer block (*Note: ...*)
+          if (trimmed.startsWith('*Note:') || trimmed.startsWith('_Note:')) {
+            return (
+              <div key={index} className="pt-2 text-xs text-slate-500 italic bg-slate-50 p-2.5 rounded-lg border border-slate-200">
+                <span dangerouslySetInnerHTML={{ __html: parseBold(trimmed) }} />
+              </div>
+            );
+          }
+
           // Normal paragraph with bold parsing
           return (
             <p key={index} dangerouslySetInnerHTML={{ __html: parseBold(line) }} />
@@ -82,10 +92,12 @@ export default function ChatMessage({ message, onNavigate, onSendPrompt }) {
       .replace(/`([^`]+)`/g, '<code class="px-1.5 py-0.5 rounded bg-slate-100 text-gov-blue font-mono text-xs font-semibold">$1</code>');
   };
 
+  const isLowConfidence = message.confidence === 'low';
+
   return (
     <div className="flex items-start gap-3 my-4 animate-in fade-in slide-in-from-bottom-2 duration-300">
       {/* BIS Assistant Avatar */}
-      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-gov-navy to-gov-navyLight text-white flex items-center justify-center shadow-md shadow-gov-navy/20 shrink-0 border border-slate-700 mt-0.5">
+      <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${isLowConfidence ? 'from-slate-700 to-slate-800' : 'from-gov-navy to-gov-navyLight'} text-white flex items-center justify-center shadow-md shadow-gov-navy/20 shrink-0 border border-slate-700 mt-0.5`}>
         <ShieldCheck className="w-4 h-4 text-gov-saffron" />
       </div>
 
@@ -99,9 +111,18 @@ export default function ChatMessage({ message, onNavigate, onSendPrompt }) {
               <span className="font-bold text-xs text-gov-navy font-['Outfit',sans-serif]">
                 BISMITRA AI Response
               </span>
-              <Badge variant="source" size="sm">
-                <Sparkles className="w-3 h-3 text-gov-saffron mr-1 inline" />
-                Knowledge Backed
+              <Badge variant={isLowConfidence ? 'default' : 'source'} size="sm">
+                {isLowConfidence ? (
+                  <>
+                    <AlertTriangle className="w-3 h-3 text-amber-500 mr-1 inline" />
+                    Unverified Query
+                  </>
+                ) : (
+                  <>
+                    <Sparkles className="w-3 h-3 text-gov-saffron mr-1 inline" />
+                    Verified Grounded Knowledge
+                  </>
+                )}
               </Badge>
             </div>
             <span className="text-[10px] text-slate-400 font-mono">
@@ -117,10 +138,10 @@ export default function ChatMessage({ message, onNavigate, onSendPrompt }) {
             <div className="pt-3 border-t border-slate-100 space-y-2">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                  Sources & References
+                  Verified Sources & References
                 </span>
                 <span className="text-[11px] text-slate-400">
-                  {message.sources.length} Verified {message.sources.length === 1 ? 'Reference' : 'References'}
+                  {message.sources.length} {message.sources.length === 1 ? 'Official Citation' : 'Official Citations'}
                 </span>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
@@ -130,7 +151,8 @@ export default function ChatMessage({ message, onNavigate, onSendPrompt }) {
                     title={src.docTitle || src.title}
                     sourceType={src.sourceType}
                     reference={src.clause || src.reference}
-                    status={src.status || 'Source-backed prototype response'}
+                    status={src.status || 'Verified Official Source'}
+                    url={src.url}
                   />
                 ))}
               </div>

@@ -1,0 +1,54 @@
+[
+  {
+    "id": "doc_cert_001_scheme1_overview",
+    "category": "certification",
+    "title": "BIS Product Certification Scheme-I (ISI Mark) Definition & Significance",
+    "verification_status": "verified",
+    "content": "BIS Product Certification Scheme-I (the ISI Mark scheme) is the flagship third-party conformity assessment system operated by the Bureau of Indian Standards under the BIS Act, 2016 and BIS (Conformity Assessment) Regulations, 2018. The ISI Mark on a product certifies that it has been manufactured under an audited quality control system and conforms to the relevant Indian Standard. For notified health, safety, and consumer goods, ISI certification is mandatory under Quality Control Orders (QCOs) issued by Central Ministries.",
+    "source_name": "Bureau of Indian Standards",
+    "document_title": "Bureau of Indian Standards Act, 2016 & Conformity Assessment Regulations 2018",
+    "page": "N/A",
+    "section": "Section 13 (Conformity Assessment) & Scheme-I",
+    "url": "https://bis.gov.in/product-certification/product-certification-scheme-overview/",
+    "keywords": ["certification", "isi mark", "scheme 1", "what is bis certification", "what is isi mark", "bis act 2016", "third party guarantee", "mandatory qco"]
+  },
+  {
+    "id": "doc_cert_002_application_steps",
+    "category": "certification",
+    "title": "Applying for BIS Certification (ISI Mark) via Manakonline Portal",
+    "verification_status": "verified",
+    "content": "Manufacturers apply for a BIS license digitally through the official 'Manakonline' portal (manakonline.in). The process requires: 1) Account registration and company profile creation, 2) Selection of the applicable Indian Standard and factory location, 3) Submission of manufacturing machinery details, test equipment list, and quality control personnel credentials, 4) Payment of application and preliminary inspection fees, and 5) Online tracking of audit schedules and lab test reports.",
+    "source_name": "Bureau of Indian Standards",
+    "document_title": "Manakonline User Manual for Domestic Manufacturers",
+    "page": "N/A",
+    "section": "Online Application Workflow Guidelines",
+    "url": "https://www.manakonline.in/",
+    "keywords": ["how to apply", "manakonline", "application process", "apply for bis license", "isi application", "apply certification", "documents required"]
+  },
+  {
+    "id": "doc_cert_003_seven_step_roadmap",
+    "category": "certification",
+    "title": "The 7-Step BIS Certification (Scheme-I) Compliance Lifecycle",
+    "verification_status": "verified",
+    "content": "The standard BIS product certification lifecycle consists of 7 structured steps: 1) Identify Applicable Standard: Verify IS code and mandatory QCO scope; 2) Setup In-House Lab: Procure testing apparatus for mandatory routine tests and appoint qualified QC staff; 3) Online Portal Submission: Submit application on Manakonline with factory layout, test facility list, and fees; 4) Preliminary Factory Audit: A BIS technical officer visits the manufacturing premises to audit production systems, test apparatus calibration, and quality management; 5) Sample Drawing & Independent Testing: The auditor draws and seals production samples for independent testing at a BIS Central or recognized NABL lab; 6) Technical Scrutiny: Scrutiny of factory inspection findings and laboratory test reports against standard requirements; 7) Grant of Licence (CML): Issuance of Certification Marks Licence with a unique 7 or 8-digit CM/L number allowing the manufacturer to affix the ISI Mark.",
+    "source_name": "Bureau of Indian Standards",
+    "document_title": "BIS Conformity Assessment Regulations 2018 (Scheme-I)",
+    "page": "N/A",
+    "section": "Regulation 4 & Regulation 5 (Grant of Licence)",
+    "url": "https://bis.gov.in/product-certification/process-flow-for-grant-of-licence/",
+    "keywords": ["7 steps", "certification steps", "certification process", "general certification steps", "roadmap", "lifecycle", "cml grant", "step by step"]
+  },
+  {
+    "id": "doc_cert_004_factory_audit_and_testing",
+    "category": "certification",
+    "title": "Product Testing Requirements and Role of Factory Audits",
+    "verification_status": "verified",
+    "content": "Product testing in BIS certification occurs across three essential stages: 1) In-house Routine Testing: Manufacturers must perform continuous batch testing of raw materials and finished products as defined in the Scheme of Inspection and Testing (SIT); 2) Initial Verification Testing: Production samples drawn during the factory audit are tested at an accredited lab to verify standard compliance; 3) Periodic Surveillance Testing: Post-licence samples are collected periodically from factories and open markets to maintain conformity. The Factory Audit verifies manufacturing capabilities, instrument calibration, and quality control systems.",
+    "source_name": "Bureau of Indian Standards",
+    "document_title": "BIS Operational Guidelines for Product Certification",
+    "page": "N/A",
+    "section": "Factory Inspection and Testing Protocols (Scheme-I)",
+    "url": "https://bis.gov.in/product-certification/surveillance-and-monitoring/",
+    "keywords": ["when is testing required", "product testing", "factory audit", "surveillance testing", "routine testing", "role of audit", "sampling plan"]
+  }
+]

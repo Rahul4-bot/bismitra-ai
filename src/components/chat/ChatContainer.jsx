@@ -16,15 +16,19 @@ export default function ChatContainer({ onNavigate }) {
       sources: [
         {
           title: "Bureau of Indian Standards Act, 2016",
+          docTitle: "Bureau of Indian Standards Act, 2016 (Official Gazette of India)",
           sourceType: "Statutory Law of India",
-          clause: "Section 10 (Conformity Assessment & Standardization)",
-          status: "Official Statutory Source"
+          clause: "Section 10 & 13 (Standardization & Conformity Assessment)",
+          status: "Official Statutory Source",
+          url: "https://bis.gov.in/the-bis-act-2016/"
         },
         {
-          title: "National Standards Body of India Overview",
+          title: "BIS National Standards Body & Regulatory Portal",
+          docTitle: "BIS National Standards Framework & Online Services",
           sourceType: "BIS Portal Knowledgebase",
           clause: "Technical Committee & Quality Framework",
-          status: "Verified Reference"
+          status: "Verified Official Portal",
+          url: "https://www.manakonline.in/"
         }
       ],
       suggestedActions: [

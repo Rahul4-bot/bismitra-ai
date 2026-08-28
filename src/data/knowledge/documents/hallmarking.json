@@ -1,0 +1,54 @@
+[
+  {
+    "id": "doc_hallmark_001_overview",
+    "category": "hallmarking",
+    "title": "What is Gold Hallmarking & Importance of Mandatory Compliance",
+    "verification_status": "verified",
+    "content": "Hallmarking is the accurate determination and official recording of the proportionate content of precious metal (gold or silver) in jewellery and artefacts. Under the Hallmarking Order issued by the Ministry of Consumer Affairs, hallmarking is mandatory across notified districts in India. Its primary objective is to safeguard consumers against adulteration and under-caratage, ensure honest trade practices, and establish third-party verified purity standards.",
+    "source_name": "Bureau of Indian Standards & Department of Consumer Affairs",
+    "document_title": "BIS (Hallmarking) Regulations 2018 & Hallmarking Order",
+    "page": "N/A",
+    "section": "Mandatory Hallmarking of Gold Jewellery Orders",
+    "url": "https://www.hallmarking.bis.gov.in/",
+    "keywords": ["what is hallmarking", "hallmarking", "why is hallmarking important", "gold hallmarking", "mandatory hallmarking", "under caratage", "consumer protection"]
+  },
+  {
+    "id": "doc_hallmark_002_three_marks",
+    "category": "hallmarking",
+    "title": "The 3 Mandatory Marks on Hallmarked Gold Jewellery",
+    "verification_status": "verified",
+    "content": "Every piece of hallmarked gold jewellery sold in India must bear 3 distinct laser-engraved marks: 1) The BIS Standard Logo: A triangular mark signifying BIS certification; 2) Purity in Karat and Fineness: Approved grades such as 24K999 (99.9%), 23K958 (95.8%), 22K916 (91.6%), 20K833 (83.3%), 18K750 (75.0%), or 14K585 (58.5%); 3) Hallmark Unique Identification (HUID): A unique 6-digit alphanumeric code laser-inscribed on each individual jewellery piece at a BIS-recognized Assaying and Hallmarking Centre (AHC).",
+    "source_name": "Bureau of Indian Standards",
+    "document_title": "IS 1417: 2016 (Gold and Gold Alloys, Jewellery/Artefacts - Fineness and Marking)",
+    "page": "N/A",
+    "section": "Clause 4 (Purity Grades) & Clause 7 (Marking Requirements)",
+    "url": "https://www.hallmarking.bis.gov.in/",
+    "keywords": ["3 mandatory marks", "mandatory marks on gold", "purity fineness", "22k916", "18k750", "14k585", "gold marks", "bis triangle mark"]
+  },
+  {
+    "id": "doc_hallmark_003_huid_verification",
+    "category": "hallmarking",
+    "title": "What is HUID & How Consumers Can Verify Hallmarked Jewellery",
+    "verification_status": "verified",
+    "content": "HUID (Hallmark Unique Identification) is a unique 6-digit alphanumeric code laser-engraved on every single piece of gold jewellery during assaying at a BIS-recognized Assaying and Hallmarking Centre (AHC). HUID ensures complete traceability. Consumers can verify any hallmarked article using the 'Verify HUID' feature on the official BIS Care mobile app. Entering the 6-character code displays: 1) Jeweller's registration number and business name, 2) Assaying and Hallmarking Centre (AHC) details, 3) Date of hallmarking, and 4) Article type and purity grade.",
+    "source_name": "Bureau of Indian Standards",
+    "document_title": "BIS Care Mobile Application User Guide & HUID System Manual",
+    "page": "N/A",
+    "section": "HUID Verification Module",
+    "url": "https://bis.gov.in/consumer-engagement-overview/",
+    "keywords": ["what is huid", "huid", "how to verify huid", "verify hallmarked jewellery", "bis care huid", "6 digit code", "traceability", "huid verification"]
+  },
+  {
+    "id": "doc_hallmark_004_consumer_redressal",
+    "category": "verified",
+    "title": "Consumer Redressal & Compensation for Substandard Hallmarked Jewellery",
+    "verification_status": "verified",
+    "content": "Under Rule 49 of the Bureau of Indian Standards Rules, 2018, if hallmarked jewellery is tested at a BIS-recognized Assaying and Hallmarking Centre (AHC) and found to have a lower purity than marked, the registered jeweller is legally obligated to compensate the consumer. The compensation payable is calculated as two times the difference in value based on the shortage of purity for the weight of the article sold, plus full reimbursement of the testing charges incurred by the consumer.",
+    "source_name": "Bureau of Indian Standards",
+    "document_title": "Bureau of Indian Standards Rules, 2018",
+    "page": "N/A",
+    "section": "Rule 49 (Compensation for Non-Conforming Hallmarked Articles)",
+    "url": "https://www.hallmarking.bis.gov.in/",
+    "keywords": ["substandard purity", "testing hallmarked jewellery", "compensation", "jeweller liability", "ahc testing", "consumer rights hallmarking", "rule 49"]
+  }
+]
