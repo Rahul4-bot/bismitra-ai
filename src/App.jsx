@@ -7,6 +7,7 @@ import ChatContainer from './components/chat/ChatContainer';
 import ScanProductPage from './components/scanner/ScanProductPage';
 import FindStandardPage from './components/findstandard/FindStandardPage';
 import CertificationGuidePage from './components/certification/CertificationGuidePage';
+import HallmarkingPage from './components/hallmarking/HallmarkingPage';
 import Badge from './components/common/Badge';
 import { Layers, FileCheck2, Gem, FlaskConical, HelpCircle, CheckCircle2, ArrowRight } from 'lucide-react';
 
@@ -72,8 +73,12 @@ export default function App() {
           <CertificationGuidePage onNavigate={handleNavigate} payload={navigationPayload} />
         )}
 
+        {activeTab === 'hallmarking' && (
+          <HallmarkingPage onNavigate={handleNavigate} payload={navigationPayload} />
+        )}
+
         {/* PLACEHOLDER / SHELL VIEWS FOR STEPS 4 & 5 */}
-        {activeTab !== 'home' && activeTab !== 'scan-product' && activeTab !== 'find-standard' && activeTab !== 'certification' && (
+        {activeTab !== 'home' && activeTab !== 'scan-product' && activeTab !== 'find-standard' && activeTab !== 'certification' && activeTab !== 'hallmarking' && (
           <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-gov-md space-y-6 animate-in fade-in duration-200">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-5">
               <div className="space-y-1">
