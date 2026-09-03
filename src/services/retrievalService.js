@@ -24,6 +24,34 @@ const STOP_WORDS = new Set([
   'get', 'find', 'make', 'use', 'apply', 'does'
 ]);
 
+// Product-neutral words that describe BIS topics or are functional helpers,
+// NOT any specific product. These must NOT by themselves cause a specific
+// product to be selected, and must not be mistaken for a product reference.
+const GENERIC_WORDS = new Set([
+  ...STOP_WORDS,
+  // BIS / domain abbreviations
+  'bis', 'isi', 'cml', 'crl', 'qco', 'nabl', 'huid', 'lrs', 'bismitra', 'manakonline',
+  // product / topic-neutral English terms
+  'product', 'products', 'standard', 'standards', 'certification', 'certified',
+  'testing', 'test', 'tests', 'tested', 'required', 'requirement', 'requirements',
+  'mark', 'marks', 'process', 'scheme', 'apply', 'applicable', 'mandatory', 'quality',
+  'compliance', 'approval', 'approve', 'license', 'licence', 'registration',
+  'register', 'verify', 'verification', 'verify karein', 'valid', 'validity', 'number',
+  'info', 'information', 'faq', 'guide', 'guidance', 'category', 'categories',
+  'want', 'need', 'looking', 'know', 'regarding', 'about', 'hello', 'help', 'more',
+  // Hinglish / Hindi functional words (Roman script)
+  'wale', 'wala', 'walon', 'ka', 'ki', 'ke', 'ko', 'se', 'me', 'par', 'hai', 'hain',
+  'hota', 'hote', 'hoti', 'hona', 'hone', 'hoga', 'hogi', 'honge', 'tha', 'the',
+  'kya', 'kaise', 'kais', 'karna', 'karo', 'karu', 'kro', 'kar', 'karke', 'karne',
+  'karenge', 'karti', 'karta', 'chahiye', 'mujhe', 'mujh', 'mera', 'meri', 'mere',
+  'apna', 'apne', 'apni', 'aapka', 'aapp', 'aap', 'tum', 'yeh', 'yah', 'aur', 'bhi',
+  'nahi', 'raha', 'rahi', 'rahe', 'sakta', 'sakti', 'sakte', 'sakti', 'kaunsa',
+  'kaun', 'kaunse', 'kaisi', 'kis', 'kisi', 'kise', 'kyun', 'kyu', 'kahan', 'kab',
+  'batao', 'btao', 'bataiye', 'batiye', 'dijiye', 'kijiye', 'toh', 'to', 'dhanwad',
+  'ji', 'hmm', 'sawal', 'sawaal', 'puchna', 'pucho', 'banao', 'rakho', 'de', 'do',
+  'find', 'lookup', 'search', 'applyfor', 'bata', 'btana', 'kitna', 'kitne'
+]);
+
 /**
  * Normalizes input text into lowercase searchable tokens, optionally stripping common stop words.
  */
@@ -88,58 +116,130 @@ export function detectCategory(query) {
  */
 export function searchStructuredProducts(query) {
   const queryLower = query.toLowerCase();
-  const contentTokens = tokenize(query, true);
 
-  if (contentTokens.length === 0) {
+  // Product-specific tokens: remove English stop words AND generic BIS/product-neutral
+  // words so that words like "product", "standard", "certification", "mark" can never
+  // by themselves select a specific product.
+  const productTokens = tokenize(query, true).filter(t => !GENERIC_WORDS.has(t));
+
+  if (productTokens.length === 0) {
     return null;
   }
 
-  let matchedProducts = [];
+  const queryCompact = queryLower.replace(/[^a-z0-9]/g, '');
+
+  let best = null;
+  let bestScore = 0;
 
   for (const prod of productsData) {
+    const nameLower = prod.product_name.toLowerCase();
     let score = 0;
+    let strong = false;
 
-    // Direct product name substring match
-    if (queryLower.includes(prod.product_name.toLowerCase())) {
-      score += 12;
-    } else {
-      // Check individual product content tokens
-      const nameTokens = tokenize(prod.product_name, true);
-      for (const token of nameTokens) {
-        if (contentTokens.includes(token)) {
-          score += 5;
-        }
-      }
-    }
-
-    // Check standard match (e.g. "IS 302", "14543", "4151", "16102", "1786", "1417")
+    // STRONG 1: Standard number match (e.g. IS 4151, 1786, 1417, IS 302-2-3).
+    // Compare on the standard's numeric core without the year suffix so that
+    // "IS 4151" matches "IS 4151: 2015" and "4151" / "1786" also match.
     const standardNorm = prod.possible_standard.toLowerCase().replace(/[^a-z0-9]/g, '');
-    const queryCompact = queryLower.replace(/[^a-z0-9]/g, '');
-    if (queryCompact.includes(standardNorm) || contentTokens.some(t => prod.possible_standard.toLowerCase().includes(t))) {
-      score += 10;
+    const standardCore = standardNorm.replace(/20\d{2}$/, '');
+    const queryDigits = queryCompact.replace(/[^0-9]/g, '');
+    const standardDigits = standardCore.replace(/[^0-9]/g, '');
+    if (standardNorm && (
+      queryCompact.includes(standardNorm) ||
+      (standardCore.length >= 5 && queryCompact.includes(standardCore)) ||
+      (standardDigits.length >= 4 && queryDigits.includes(standardDigits))
+    )) {
+      score += 80;
+      strong = true;
     }
 
-    // Check supported questions similarity with content tokens
-    for (const sq of prod.supported_questions) {
-      const sqLower = sq.toLowerCase();
-      if (queryLower.includes(sqLower) || sqLower.includes(queryLower)) {
-        score += 8;
-      }
-      const sqTokens = tokenize(sq, true);
-      const overlap = sqTokens.filter(t => contentTokens.includes(t)).length;
-      if (overlap > 0) {
-        score += overlap * 2.5;
-      }
+    // STRONG 2: Direct product-name substring match ("electric iron" in query)
+    if (queryLower.includes(nameLower)) {
+      score += 100;
+      strong = true;
     }
 
-    if (score >= 4) {
-      matchedProducts.push({ product: prod, score });
+    // STRONG 3: Meaningful product-name token overlap (prefix-aware for singular/plural)
+    const nameTokens = tokenize(prod.product_name, true);
+    const overlap = countPrefixMatch(productTokens, nameTokens);
+    if (overlap >= 2) {
+      score += 45 + overlap * 6;
+      strong = true;
+    } else if (overlap === 1) {
+      score += 25;
+      strong = true;
+    }
+
+    // WEAK (tiebreaker only): meaningful supported-question tokens.
+    // Never creates a match by itself; only makes an already-strong match win.
+    if (strong) {
+      let qOverlap = 0;
+      for (const sq of prod.supported_questions) {
+        const sqTokens = tokenize(sq, true).filter(t => !GENERIC_WORDS.has(t));
+        qOverlap += countPrefixMatch(productTokens, sqTokens);
+      }
+      score += Math.min(qOverlap * 2, 12);
+    }
+
+    if (strong && score > bestScore) {
+      bestScore = score;
+      best = prod;
     }
   }
 
-  // Sort by highest score
-  matchedProducts.sort((a, b) => b.score - a.score);
-  return matchedProducts.length > 0 ? matchedProducts[0].product : null;
+  return best;
+}
+
+/**
+ * Counts how many tokens from `queryTokens` match any token in `pool`.
+ * Uses prefix matching so singular/plural forms align (helmet → helmets).
+ * Only counts meaningful tokens (length >= 4) to avoid ambiguity.
+ */
+function countPrefixMatch(queryTokens, pool) {
+  if (!queryTokens.length || !pool.length) return 0;
+  let count = 0;
+  for (const qt of queryTokens) {
+    if (qt.length < 4) continue;
+    for (const pt of pool) {
+      if (qt === pt || (pt.length >= 4 && (pt.startsWith(qt) || qt.startsWith(pt)))) {
+        count++;
+        break;
+      }
+    }
+  }
+  return count;
+}
+
+/**
+ * Returns the product-specific tokens in a query: English stop words and generic
+ * BIS/product-neutral words are removed so only concrete product references remain.
+ */
+function queryProductTokens(query) {
+  return tokenize(query, true).filter(t => !GENERIC_WORDS.has(t));
+}
+
+/**
+ * Unknown-product guard.
+ * If a query references a specific product term (e.g. "pressure cooker",
+ * "refrigerator") that matches no product in the KB AND does not appear in any
+ * retrieved document, the retrieved document hits are unrelated generic matches.
+ * In that case we treat it as insufficient context rather than answering with
+ * unrelated documents.
+ */
+function isUnmatchedProductReference(matchedProduct, matchedDocs, query) {
+  const productTokens = queryProductTokens(query).filter(t => t.length >= 4);
+  if (productTokens.length === 0) return false;
+  if (matchedProduct) return false;
+  if (!matchedDocs || matchedDocs.length === 0) return false;
+
+  // If any retrieved doc actually references the product term, keep the docs.
+  for (const tok of productTokens) {
+    for (const doc of matchedDocs) {
+      const haystack = `${(doc.title || '')} ${(doc.keywords || []).join(' ')} ${(doc.content || '')}`.toLowerCase();
+      if (haystack.includes(tok)) return false;
+    }
+  }
+
+  return true;
 }
 
 /**
@@ -250,6 +350,22 @@ export function retrieveContext(query) {
   });
 
   const sources = Array.from(sourcesMap.values());
+
+  // If the query references a concrete product that is not in the KB (and no
+  // document actually mentions it), drop the unrelated document matches so the
+  // assistant reports "not available" instead of answering from unrelated docs.
+  if (isUnmatchedProductReference(matchedProduct, matchedDocs, query)) {
+    return {
+      query,
+      detectedCategory: category ? category.name : 'General BIS Query',
+      categoryId: category ? category.id : null,
+      matchedProduct: null,
+      matchedDocs: [],
+      formattedContext: '',
+      sources: [],
+      hasSufficientContext: false
+    };
+  }
 
   // Determine if there is sufficient verified context to answer
   const hasSufficientContext = matchedProduct !== null || matchedDocs.length > 0;

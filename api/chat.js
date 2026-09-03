@@ -11,13 +11,73 @@ const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/
 const SYSTEM_INSTRUCTION = `You are BISMITRA AI, an expert, official-grounded assistant for the Bureau of Indian Standards (BIS).
 Your role is to assist manufacturers, consumers, and professionals with Indian Standards (IS codes), Quality Control Orders (QCOs), Scheme-I (ISI Mark), Scheme-II (CRS), Gold Hallmarking (HUID), Laboratory Testing, and Consumer Grievances.
 
+LANGUAGE MATCHING:
+- Write your answer in the SAME language and style as the user's query whenever reasonably possible.
+- If the user writes in Hindi (Devanagari), answer in clear, natural Hindi.
+- If the user writes in Hinglish (Hindi words written in Roman/English script), answer naturally in the same Hinglish style.
+- If the user writes in English, answer in English.
+- If the user writes in any other language Gemini fully understands, answer in that language where practical.
+- If the query is ambiguous in language, default to English.
+
+NEVER translate, alter, or transliterate official technical identifiers. Always keep them exactly as-is:
+IS 302-2-3, IS 14543, IS 4151, IS 16102 Part 1, IS 1786, IS 1417, CM/L, HUID, BIS, NABL, LRS, QCO, Manakonline, BIS Care, and official document/source names when useful.
+Example: keep "IS 4151" as "IS 4151" even in a Hindi answer, e.g. "Helmet ke liye applicable standard IS 4151 hai...".
+
 CRITICAL INSTRUCTIONS:
 1. Answer the user's question STRICTLY and ONLY using the provided VERIFIED CONTEXT below.
 2. NEVER invent, hallucinate, or extrapolate Indian Standards (IS codes), clause numbers, testing requirements, or government notifications.
-3. If the provided context does NOT contain enough verified information to answer the question reliably, you MUST state:
-   "I do not have enough verified information in the current BISMITRA knowledge base to answer this reliably. Please check the official BIS source or refine your question."
+3. If the provided context does NOT contain enough verified information to answer the question reliably, you MUST say so clearly IN THE USER'S LANGUAGE, and MUST NOT fill the gap with unsupported general knowledge.
 4. Maintain a clear, professional, and accessible tone. Avoid unnecessary jargon.
 5. Always return a valid JSON object matching the requested schema.`;
+
+// ---------------------------------------------------------------------------
+// Lightweight server-side language detection for multilingual responses.
+// Detects Hindi (Devanagari script), Hinglish (Hindi words in Roman script),
+// or English. Pure ASCII English queries default to English.
+// ---------------------------------------------------------------------------
+const DEVANAGARI_RE = /[\u0900-\u097F\uA8E0-\uA8FF]/;
+
+// Distinctive Hinglish / Hindi-in-Roman markers (rare in natural English).
+const HINGLISH_MARKERS = [
+  'kaise', 'kya', 'hai', 'hain', 'karu', 'karna', 'kro', 'karein', 'kaunsa',
+  'kaun', 'mujhe', 'mera', 'meri', 'apne', 'aapka', 'apka', 'batao', 'btao',
+  'bataiye', 'chahiye', 'sakta', 'sakte', 'karke', 'kiye', 'hota', 'hote',
+  'nahi', 'raha', 'rahi', 'milega', 'sawaal', 'sawal', 'puchna', 'pucho',
+  'kaam', 'cheez', 'bhi', 'aur', 'baare', 'bina', 'kaunse', 'kis', 'kisi',
+  'liye', 'hoga', 'hogi', 'honge', 'ko', 'ke', 'ka', 'ki'
+];
+
+function detectQueryLanguage(query) {
+  const q = (query || '').trim();
+  if (!q) return 'en';
+  if (DEVANAGARI_RE.test(q)) return 'hi';
+  const tokens = q.toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
+  let hits = 0;
+  for (const token of tokens) {
+    if (HINGLISH_MARKERS.includes(token)) hits++;
+  }
+  return hits >= 2 ? 'hinglish' : 'en';
+}
+
+const LANG_LABEL = { en: 'English', hi: 'Hindi', hinglish: 'Hinglish' };
+
+const NOT_ENOUGH_INFO = {
+  en: "I do not have enough verified information in the current BISMITRA knowledge base to answer this reliably. Please check the official BIS portal (bis.gov.in) or refine your question with a specific product or standard.",
+  hi: "मुझे वर्तमान BISMITRA ज्ञान-आधार में इसका विश्वसनीय उत्तर देने के लिए पर्याप्त सत्यापित जानकारी नहीं मिली है। कृपया आधिकारिक BIS पोर्टल (bis.gov.in) देखें या अपना प्रश्न किसी विशिष्ट उत्पाद या मानक के साथ पूछें।",
+  hinglish: "Isko reliable answer dene ke liye current BISMITRA knowledge base me itni verified information nahi hai. Kripya official BIS portal (bis.gov.in) check karein ya apna sawal kisi specific product ya standard ke saath pochein."
+};
+
+const NOT_ENOUGH_HINT = {
+  en: "No matching verified Indian Standard or Gazette order found in the focused dataset.",
+  hi: "फ़ोकस किए गए डेटा-सेट में कोई मेल खाता हुआ सत्यापित भारतीय मानक या गज़ट आदेश नहीं मिला।",
+  hinglish: "Focused dataset me koi matching verified Indian Standard ya Gazette order nahi mila."
+};
+
+const NO_EXTRAPOLATION = {
+  en: "To prevent misinformation, BISMITRA AI does not extrapolate unverified compliance requirements.",
+  hi: "ग़लत जानकारी से बचने के लिए, BISMITRA AI असत्यापित अनुपालन आवश्यकताओं का अनुमान नहीं लगाता।",
+  hinglish: "Galat jaankari rokne ke liye, BISMITRA AI unverified compliance requirements ka extrapolate nahi karta."
+};
 
 export default async function handler(req, res) {
   // Only allow POST
@@ -37,18 +97,28 @@ export default async function handler(req, res) {
     const retrievalResult = retrieveContext(query);
     const { formattedContext, sources, hasSufficientContext, matchedProduct, matchedDocs, detectedCategory, categoryId } = retrievalResult;
 
+    // Detect the user's response language from the query itself.
+    const lang = detectQueryLanguage(query);
+    const madad = NOT_ENOUGH_INFO[lang];
+    const hint = NOT_ENOUGH_HINT[lang];
+    const noExtra = NO_EXTRAPOLATION[lang];
+
     // 2. Handle out of scope / insufficient context
     if (!hasSufficientContext || !formattedContext.trim()) {
       return res.status(200).json({
         id: 'msg-' + Date.now(),
         sender: 'bismitra',
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        text: `### ${detectedCategory}\n\nI do not have enough verified information in the current BISMITRA knowledge base to answer this reliably. Please check the official BIS portal (bis.gov.in) or refine your question with a specific product or standard.\n\n*Note: Information is based on the sources available in the BISMITRA prototype knowledge base. Requirements may change; please verify critical compliance decisions with official BIS sources.*`,
-        rawAnswer: "I do not have enough verified information in the current BISMITRA knowledge base to answer this reliably. Please check the official BIS portal (bis.gov.in) or refine your question with a specific product or standard.",
+        text: `### ${detectedCategory}\n\n${madad}\n\n*Note: Information is based on the sources available in the BISMITRA prototype knowledge base. Requirements may change; please verify critical compliance decisions with official BIS sources.*`,
+        rawAnswer: madad,
         keyPoints: [
-          "No matching verified Indian Standard or Gazette order found in the focused dataset.",
-          "To prevent misinformation, BISMITRA AI does not extrapolate unverified compliance requirements.",
-          "You can explore official publications on the BIS Manakonline portal."
+          hint,
+          noExtra,
+          lang === 'en'
+            ? "You can explore official publications on the BIS Manakonline portal."
+            : (lang === 'hi'
+                ? "आप BIS Manakonline पोर्टल पर आधिकारिक प्रकाशन देख सकते हैं।"
+                : "Aap BIS Manakonline portal par official publications dekh sakte hain.")
         ],
         sources: [],
         confidence: "low",
@@ -67,13 +137,19 @@ export default async function handler(req, res) {
         const prompt = `USER QUESTION:
 ${query}
 
+DETECTED RESPONSE LANGUAGE: ${LANG_LABEL[lang]} (${lang})
+
 VERIFIED BIS CONTEXT:
 ${formattedContext}
 
-Please answer the user's question strictly based on the above context.
-Respond with a JSON object in this exact schema:
+Instructions:
+- Answer strictly based on the above VERIFIED BIS CONTEXT. Do NOT invent standards, numbers, fees, timelines, contacts, HUID results, or URLs.
+- Respond in the DETECTED RESPONSE LANGUAGE (${LANG_LABEL[lang]}), matching the user's own language/style as closely as reasonably possible.
+- NEVER translate or alter official technical identifiers such as IS numbers, CM/L, HUID, BIS, NABL, LRS, QCO, Manakonline, or BIS Care. Keep them exactly as they appear in the context.
+- If the context does not contain enough verified information to answer reliably, state so clearly in the DETECTED RESPONSE LANGUAGE and do not fill gaps with unsupported general knowledge.
+- Respond with a JSON object in this exact schema:
 {
-  "answer": "Clear, concise paragraph explaining the answer in simple language.",
+  "answer": "Clear, concise paragraph explaining the answer in the detected language.",
   "key_points": ["Key point 1", "Key point 2", "Key point 3"],
   "confidence": "high"
 }`;
@@ -105,7 +181,7 @@ Respond with a JSON object in this exact schema:
 
     // 4. Fallback to Server-side Local Grounded Synthesis if no API key or network error
     if (!aiAnswer) {
-      aiAnswer = buildServerGroundedAnswer(retrievalResult);
+      aiAnswer = buildServerGroundedAnswer(retrievalResult, lang);
     }
 
     // 5. Build Final Structured Response
@@ -149,16 +225,37 @@ Respond with a JSON object in this exact schema:
   }
 }
 
-function buildServerGroundedAnswer(retrievalResult) {
+function buildProductAnswer(matchedProduct, lang) {
+  const p = matchedProduct;
+  if (lang === 'hi') {
+    return `आपके उत्पाद **${p.product_name}** के लिए applicable भारतीय मानक **${p.possible_standard}** है। यह **${p.scheme_or_service}** के अंतर्गत आता है और यह ${p.mandatory_status} है। ${p.certification_guidance}`;
+  }
+  if (lang === 'hinglish') {
+    return `Aapke product **${p.product_name}** ke liye applicable Indian Standard **${p.possible_standard}** hai. Yeh **${p.scheme_or_service}** ke under aata hai aur ${p.mandatory_status} hai. ${p.certification_guidance}`;
+  }
+  return `For **${p.product_name}**, the applicable Indian Standard is **${p.possible_standard}**. It is governed under **${p.scheme_or_service}** and is ${p.mandatory_status}. ${p.certification_guidance}`;
+}
+
+function buildKeyPoint(label, value, lang) {
+  const labels = {
+    'Applicable Standard':  { hi: 'Applicable Standard',  hinglish: 'Applicable Standard' },
+    'Certification Scheme': { hi: 'Certification Scheme', hinglish: 'Certification Scheme' },
+    'Mandatory Status':     { hi: 'Mandatory Status',     hinglish: 'Mandatory Status' }
+  };
+  const l = (labels[label] && labels[label][lang]) || label;
+  return `${l}: ${value}`;
+}
+
+function buildServerGroundedAnswer(retrievalResult, lang) {
   const { matchedProduct, matchedDocs, detectedCategory } = retrievalResult;
 
   if (matchedProduct) {
     return {
-      answer: `For **${matchedProduct.product_name}**, the applicable Indian Standard is **${matchedProduct.possible_standard}**. It is governed under **${matchedProduct.scheme_or_service}** and is ${matchedProduct.mandatory_status}. ${matchedProduct.certification_guidance}`,
+      answer: buildProductAnswer(matchedProduct, lang),
       key_points: [
-        `Applicable Standard: ${matchedProduct.possible_standard}`,
-        `Certification Scheme: ${matchedProduct.scheme_or_service}`,
-        `Mandatory Status: ${matchedProduct.mandatory_status}`,
+        buildKeyPoint('Applicable Standard', matchedProduct.possible_standard, lang),
+        buildKeyPoint('Certification Scheme', matchedProduct.scheme_or_service, lang),
+        buildKeyPoint('Mandatory Status', matchedProduct.mandatory_status, lang),
         ...matchedProduct.important_notes.slice(0, 2)
       ],
       confidence: "high"
@@ -184,8 +281,8 @@ function buildServerGroundedAnswer(retrievalResult) {
   }
 
   return {
-    answer: "I do not have enough verified information in the current BISMITRA knowledge base to answer this reliably.",
-    key_points: ["No matching record found."],
+    answer: NOT_ENOUGH_INFO[lang] || NOT_ENOUGH_INFO.en,
+    key_points: [lang === 'hi' ? "कोई मेल खाता हुआ रिकॉर्ड नहीं मिला।" : (lang === 'hinglish' ? "Koi matching record nahi mila." : "No matching record found.")],
     confidence: "low"
   };
 }
