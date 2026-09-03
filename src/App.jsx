@@ -4,6 +4,7 @@ import Footer from './components/common/Footer';
 import HeroBanner from './components/home/HeroBanner';
 import QuickActionGrid from './components/home/QuickActionGrid';
 import ChatContainer from './components/chat/ChatContainer';
+import ScanProductPage from './components/scanner/ScanProductPage';
 import Badge from './components/common/Badge';
 import { Layers, FileCheck2, Gem, FlaskConical, HelpCircle, CheckCircle2, ArrowRight } from 'lucide-react';
 
@@ -57,8 +58,12 @@ export default function App() {
           </div>
         )}
 
+        {activeTab === 'scan-product' && (
+          <ScanProductPage onNavigate={handleNavigate} />
+        )}
+
         {/* PLACEHOLDER / SHELL VIEWS FOR STEPS 4 & 5 */}
-        {activeTab !== 'home' && (
+        {activeTab !== 'home' && activeTab !== 'scan-product' && (
           <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-gov-md space-y-6 animate-in fade-in duration-200">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-5">
               <div className="space-y-1">

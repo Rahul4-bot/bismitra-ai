@@ -10,7 +10,8 @@ import {
   Gem, 
   FlaskConical, 
   HelpCircle,
-  Home
+  Home,
+  ScanLine
 } from 'lucide-react';
 
 export default function Navbar({ activeTab, setActiveTab }) {
@@ -18,6 +19,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
 
   const navItems = [
     { id: 'home', label: 'Home', icon: Home },
+    { id: 'scan-product', label: 'Scan Product', icon: ScanLine },
     { id: 'find-standard', label: 'Find My Standard', icon: Layers },
     { id: 'certification', label: 'Certification Guide', icon: FileCheck2 },
     { id: 'hallmarking', label: 'Hallmarking Help', icon: Gem },

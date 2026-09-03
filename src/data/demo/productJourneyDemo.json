@@ -1,0 +1,164 @@
+{
+  "dataSource": "demo",
+  "disclaimer": "Isolated SIH demo records for illustrating Product Journey. These are not official BIS licence, manufacturer, or certification records.",
+  "records": [
+    {
+      "id": "demo_pressure_cooker_001",
+      "identifiers": [
+        "DEMO-PC-48291",
+        "BISMITRA-DEMO:pressure-cooker",
+        "PC-48291",
+        "8901234567890"
+      ],
+      "productName": "Example Pressure Cooker",
+      "category": "Kitchen / Household Appliances",
+      "manufacturer": "Example Appliances Pvt. Ltd. (demo)",
+      "manufacturerId": "DEMO-MFG-001",
+      "batchNumber": "DEMO-BATCH-2024-09",
+      "serialNumber": "DEMO-SN-48291",
+      "applicableStandards": [
+        {
+          "code": "IS 2347 (demo reference)",
+          "name": "Domestic Pressure Cookers — illustrative demo standard label"
+        }
+      ],
+      "testing": {
+        "laboratory": "Example BIS-recognized lab (demo)",
+        "testDate": "2024-11-02",
+        "result": "Conforms (demo)",
+        "source": "Demo dataset"
+      },
+      "certification": {
+        "licenceNumber": "DEMO-CML-00048291",
+        "status": "ACTIVE",
+        "issueDate": "2024-12-01",
+        "expiryDate": "2026-11-30",
+        "source": "Demo dataset"
+      },
+      "manufacturing": {
+        "facility": "Example Plant, Pune (demo)",
+        "batchNumber": "DEMO-BATCH-2024-09",
+        "manufacturingDate": "2024-10-18"
+      },
+      "distribution": {
+        "distributor": "Example Retail Distribution (demo)",
+        "location": "Pune / Mumbai (demo)",
+        "date": "2024-11-20"
+      }
+    },
+    {
+      "id": "demo_led_expired_001",
+      "identifiers": [
+        "DEMO-EXPIRED-LED",
+        "R-00000001-DEMO"
+      ],
+      "productName": "Example Self-Ballasted LED Lamp",
+      "category": "Electronics & IT Goods",
+      "manufacturer": "Example Lighting Co. (demo)",
+      "manufacturerId": "DEMO-MFG-002",
+      "batchNumber": "DEMO-LED-2022-01",
+      "serialNumber": null,
+      "applicableStandards": [
+        {
+          "code": "IS 16102 (Part 1): 2012 (demo overlay)",
+          "name": "Self-Ballasted LED Lamps — illustrative demo overlay"
+        }
+      ],
+      "testing": {
+        "laboratory": "Example CRS test lab (demo)",
+        "testDate": "2022-03-14",
+        "result": "Conforms at time of test (demo)",
+        "source": "Demo dataset"
+      },
+      "certification": {
+        "licenceNumber": "DEMO-R-00000001",
+        "status": "EXPIRED",
+        "issueDate": "2022-04-01",
+        "expiryDate": "2024-03-31",
+        "source": "Demo dataset"
+      },
+      "manufacturing": {
+        "facility": "Example Electronics Unit (demo)",
+        "batchNumber": "DEMO-LED-2022-01",
+        "manufacturingDate": "2022-02-20"
+      },
+      "distribution": null
+    },
+    {
+      "id": "demo_multi_helmet_a",
+      "identifiers": [
+        "DEMO-MULTI",
+        "DEMO-HELMET-A"
+      ],
+      "productName": "Example Full-Face Helmet",
+      "category": "Consumer & Safety Goods",
+      "manufacturer": "Example Safety Gear A (demo)",
+      "manufacturerId": "DEMO-MFG-003A",
+      "batchNumber": "DEMO-HLM-A-01",
+      "serialNumber": null,
+      "applicableStandards": [
+        {
+          "code": "IS 4151: 2015 (demo overlay)",
+          "name": "Protective Helmets — illustrative demo overlay"
+        }
+      ],
+      "testing": {
+        "laboratory": "Example impact lab A (demo)",
+        "testDate": "2025-01-10",
+        "result": "Conforms (demo)",
+        "source": "Demo dataset"
+      },
+      "certification": {
+        "licenceNumber": "DEMO-CML-HELMET-A",
+        "status": "ACTIVE",
+        "issueDate": "2025-02-01",
+        "expiryDate": "2027-01-31",
+        "source": "Demo dataset"
+      },
+      "manufacturing": {
+        "facility": "Example Helmet Plant A (demo)",
+        "batchNumber": "DEMO-HLM-A-01",
+        "manufacturingDate": "2025-01-22"
+      },
+      "distribution": null
+    },
+    {
+      "id": "demo_multi_helmet_b",
+      "identifiers": [
+        "DEMO-MULTI",
+        "DEMO-HELMET-B"
+      ],
+      "productName": "Example Open-Face Helmet",
+      "category": "Consumer & Safety Goods",
+      "manufacturer": "Example Safety Gear B (demo)",
+      "manufacturerId": "DEMO-MFG-003B",
+      "batchNumber": "DEMO-HLM-B-01",
+      "serialNumber": null,
+      "applicableStandards": [
+        {
+          "code": "IS 4151: 2015 (demo overlay)",
+          "name": "Protective Helmets — illustrative demo overlay"
+        }
+      ],
+      "testing": {
+        "laboratory": "Example impact lab B (demo)",
+        "testDate": "2025-03-08",
+        "result": "Conforms (demo)",
+        "source": "Demo dataset"
+      },
+      "certification": {
+        "licenceNumber": "DEMO-CML-HELMET-B",
+        "status": "ACTIVE",
+        "issueDate": "2025-04-01",
+        "expiryDate": "2027-03-31",
+        "source": "Demo dataset"
+      },
+      "manufacturing": {
+        "facility": "Example Helmet Plant B (demo)",
+        "batchNumber": "DEMO-HLM-B-01",
+        "manufacturingDate": "2025-03-18"
+      },
+      "distribution": null
+    }
+  ]
+}
