@@ -2,6 +2,7 @@ import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 import chatApiHandler from './api/chat.js';
 import verifyProductHandler from './api/verify-product.js';
+import findStandardHandler from './api/find-standard.js';
 
 function mountDevApi(server, path, handler) {
   server.middlewares.use(path, async (req, res) => {
@@ -50,6 +51,7 @@ function devApiPlugin() {
     configureServer(server) {
       mountDevApi(server, '/api/chat', chatApiHandler);
       mountDevApi(server, '/api/verify-product', verifyProductHandler);
+      mountDevApi(server, '/api/find-standard', findStandardHandler);
     }
   };
 }
